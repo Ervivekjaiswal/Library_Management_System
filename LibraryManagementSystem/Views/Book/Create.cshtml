@@ -1,0 +1,189 @@
+﻿@* @model LibraryManagementSystem.ViewModels.BookEditViewModel
+@using LibraryManagementSystem.ViewModels
+<div class="row orderForm">
+    <form asp-controller="Book" asp-action="Create" method="post" class="form-horizontal" role="form">
+        <h3 class="col-md-offset-2">Create new book</h3>
+
+
+        <div class="form-group">
+            <label asp-for="Book.Author" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.Book.AuthorId,
+                         new SelectList(Model.Authors.Select(x => new { Value = x.AuthorId, Text = x.Name }), "Value", "Text"), "Select an author",
+                         htmlAttributes: new { @class = "form-control border-input" })
+                <span asp-validation-for="Book.Author" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-2">
+                <a class="btn btn-success" style="width:100%" asp-controller="Author" asp-action="Create">Create an author</a>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Book.Title" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Book.Title" class="form-control" placeholder="Enter customers name" />
+                <span asp-validation-for="Book.Title" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-6">
+                <input class="btn btn-default" type="submit" value="Return" asp-controller="Book" asp-action="List" />
+                <input class="btn btn-success" type="submit" value="Create" />
+            </div>
+        </div>
+    </form>
+</div>
+ *@
+
+
+@* 
+@model LibraryManagementSystem.ViewModels.BookEditViewModel
+@using LibraryManagementSystem.ViewModels
+
+<div class="row orderForm">
+    <form asp-controller="Book" asp-action="Create" method="post" class="form-horizontal" role="form">
+        <h3 class="col-md-offset-2">Create new book</h3>
+
+        <div class="form-group">
+            <label asp-for="Book.AuthorId" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.Book.AuthorId,
+                                  new SelectList(Model.Authors, "AuthorId", "Name"), "Select an author",
+                                  htmlAttributes: new { @class = "form-control border-input" })
+                <span asp-validation-for="Book.AuthorId" class="text-danger"></span> <!-- Update here -->
+            </div>
+
+            <div class="col-md-2">
+                <a class="btn btn-success" style="width:100%" asp-controller="Author" asp-action="Create">Create an author</a>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Book.Title" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Book.Title" class="form-control" placeholder="Enter book title" />
+                <span asp-validation-for="Book.Title" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-6">
+                <input class="btn btn-default" type="submit" value="Return" asp-controller="Book" asp-action="List" />
+                <input class="btn btn-success" type="submit" value="Create" />
+            </div>
+        </div>
+    </form>
+</div>
+
+ *@
+
+
+
+
+
+
+ @model LibraryManagementSystem.ViewModels.BookEditViewModel
+@using LibraryManagementSystem.ViewModels
+
+<div class="row orderForm">
+    <form asp-controller="Book" asp-action="Create" method="post" class="form-horizontal" role="form">
+        <h3 class="col-md-offset-2">Create new book</h3>
+
+        @* <div class="form-group">
+            <label asp-for="Book.AuthorId" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.Book.AuthorId,
+                         new SelectList(Model.Authors, "AuthorId", "Name"), "Select an author",
+                         htmlAttributes: new { @class = "form-control border-input" })
+                <span asp-validation-for="Book.AuthorId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-2">
+                <a class="btn btn-success" style="width:100%" asp-controller="Author" asp-action="Create">Create an author</a>
+            </div>
+        </div> *@
+
+        @* <div class="form-group">
+            <label asp-for="Book.BorrowerId" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.Book.BorrowerId,
+                         new SelectList(Model.Borrowers, "CustomerId", "Name"), "Select a borrower",
+                         htmlAttributes: new { @class = "form-control border-input" })
+                <span asp-validation-for="Book.BorrowerId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-2">
+                <a class="btn btn-success" style="width:100%" asp-controller="Customer" asp-action="Create">Create a borrower</a>
+            </div>
+        </div>
+ *@
+        <@* div class="form-group">
+            <label asp-for="Book.BorrowerId" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.Book.BorrowerId,
+                         new SelectList(Model.Borrowers, "CustomerId", "Name"),
+                         "Select a borrower",
+                         htmlAttributes: new { @class = "form-control border-input" })
+                <span asp-validation-for="Book.BorrowerId" class="text-danger"></span>
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-success" style="width:100%" asp-controller="Customer" asp-action="Create">Create a borrower</a>
+            </div>
+        </div> *@
+
+
+<div class="form-group">
+    <label asp-for="Book.Title" class="col-md-2 control-label"></label>
+    <div class="col-md-6">
+        <input asp-for="Book.Title" class="form-control" placeholder="Enter book title" />
+        <span asp-validation-for="Book.Title" class="text-danger"></span>
+    </div>
+</div>
+
+<div class="form-group">
+    <label asp-for="Book.AuthorId" class="col-md-2 control-label"></label>
+    <div class="col-md-4">
+                @Html.DropDownListFor(m => m.Book.AuthorId,
+                                               new SelectList(Model.Authors, "AuthorId", "Name"),
+                                               "Select an author",
+                                               htmlAttributes: new { @class = "form-control" })
+        <span asp-validation-for="Book.AuthorId" class="text-danger"></span>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <label asp-for="Book.Borrower" class="col-md-2 control-label"></label>
+    <div class="col-md-4">
+                @Html.DropDownListFor(m => m.Book.BorrowerId,
+                                      new SelectList(Model.Borrowers, "CustomerId", "Name"), "Select a borrower",
+                             htmlAttributes: new { @class = "form-control" })
+        <span asp-validation-for="Book.BorrowerId" class="text-danger"></span>
+    </div>
+</div>
+
+
+
+        @* <div class="form-group">
+            <label asp-for="Book.Title" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Book.Title" class="form-control" placeholder="Enter book title" />
+                <span asp-validation-for="Book.Title" class="text-danger"></span>
+            </div>
+        </div> *@
+
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-6">
+                <input class="btn btn-default" type="submit" value="Return" asp-controller="Book" asp-action="List" />
+                <input class="btn btn-success" type="submit" value="Create" />
+            </div>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

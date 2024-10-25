@@ -1,0 +1,54 @@
+﻿@* @model Author
+<div class="row orderForm">
+
+    <form asp-controller="Author" asp-action="Update" method="post" class="form-horizontal" role="form">
+        <h3 class="col-md-offset-2">Edit Author @Model.Name</h3>
+        @Html.HiddenFor(m => Model.AuthorId)
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-6">
+                <input class="btn btn-default" type="submit" value="Return" asp-controller="Author" asp-action="List" />
+                <input class="btn btn-success" type="submit" value="Update" />
+            </div>
+        </div>
+    </form>
+</div> *@
+
+
+@model Author
+<div class="row orderForm">
+    <form asp-controller="Author" asp-action="Update" method="post" class="form-horizontal" role="form">
+        <h3 class="col-md-offset-2">Edit Author @Model.Name</h3>
+
+        <!-- Hidden input for AuthorId -->
+        <input type="hidden" asp-for="AuthorId" />
+
+        <!-- Name Input -->
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <!-- Submit and Return Buttons -->
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-6">
+                <!-- Use a button for Return and specify action with JavaScript or form -->
+                <a class="btn btn-default" href="@Url.Action("List", "Author")">Return</a>
+                <input class="btn btn-success" type="submit" value="Update" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+}
